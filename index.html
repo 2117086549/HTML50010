@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Raging Gardens is an HTML5 game made by Dvubuz Games.">
+    <meta name="keywords" content="raging gardens, rabbits game, html5, javascript, indie, browser based, 2D game">    
+    <title>Raging Gardens</title>
+    <script type="text/javascript" src="lib/modernizr.custom.47915.js"></script>
+    <link type="text/css" href="css/style.css" rel="stylesheet" /> 
+    <link type="text/css" href="css/le-frog/jquery-ui-1.9.2.custom.css" rel="stylesheet">
+</head>
+<body>
+<!--[if lt IE 8]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+    <!-- libraries -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="lib/crafty-0.5.3.js"></script>
+    <script type="text/javascript" src="lib/underscore-min.js"></script>
+    <script type="text/javascript" src="lib/backbone-min.js"></script>
+    <script type="text/javascript" src="lib/graph.js"></script>
+    <script type="text/javascript" src="lib/astar.js"></script>
+    <script type="text/javascript" src="lib/IndexedDBShim.min.js"></script>
+    <script type="text/javascript" src="lib/db.js"></script>
+    <script type="text/javascript" src="lib/require.js"></script>
+    
+    <!-- game -->
+    <script type="text/javascript" src="src/bootstrap.js"></script>
+    <script type="text/javascript" src="src/hiscore.js"></script>
+    <script type="text/javascript">
+    _Globals = {
+        env : 'dev',
+        version : '0.9',
+        scene : 'main'
+        };
+        //Crafty.modules({ 'crafty-debug-bar': 'DEV' }, function () {
+        //    Crafty.debugBar.show();
+        //});
+    </script> 
+
+    <div id="dialog-score" style="display: none;"></div>
+    <div id="dialog-howto" style="display: none;">
+    <h1>Goal</h1>
+    <p>You are a hungry (ninja) rabbit whose goal is to <span class="keys">pull</span> as much carrots 
+    as possible from the ground in <span class="keys">5 minutes</span>. However, you have competition!
+    Other hungry rabbits will try to outrun you and get the carrots for themselves, so you must "fight"  them.
+    Your weapons are slightly unorthodox. Simply uhm ... fart to push your competition away or use a fork-totem 
+    decoy to deceive opponents.</p>
+    </p>
+    <h1>Controls</h1>
+    <ul>
+        <li><span class="keys">Arrow keys</span> - Move your ninja rabbit on the map.</li>
+        <li><span class="keys">Z (or Y)</span> - Hold down to pull a carrot from the ground. You need to be close to a carrot.</li>
+        <li><span class="keys">Q</span> - Eat <span class="keys">1 carrot</span> and fart to push opponents away from you.</li>
+        <li><span class="keys">W</span> - Eat <span class="keys">2 carrots</span> and spawn a "Carrot-on-a-Fork" totem that attracts 
+        opponents and gives you time to pull more carrots elsewhere on the map.</li>
+    </ul>
+    </div>
+    
+    <div id="fps" style="display: none;"></div>    
+    
+    <div id="cr-stage">
+        <div id="left-frame">
+            <div id="right-frame"></div>
+            <div id="bottom-frame"></div>
+        </div>
+        
+        <div id="loading" class="text left" style="display: none;"></div>
+        <div id="stats" style="display: none;">
+            <div id="timer" class="text timer"></div>
+            <div id="carrots" class="text carrots"></div>
+            <div id="msgs" class="text center bottom"></div>
+        </div>
+        <div id="menu" style="display: none;">
+            <div id="menu-start">Start Game</div>
+            <div id="menu-howto">How to play</div>
+            <div id="menu-hiscore">Hiscores</div>
+        </div>
+    </div>
+</body>
+</html>

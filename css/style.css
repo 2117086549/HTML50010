@@ -1,0 +1,153 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body, html { 
+    overflow:hidden; 
+    background: #000 url('../art/background.png');
+} 
+#cr-stage { 
+    margin: 0 auto; 
+    border: solid 1px #231f20;
+}
+.info{
+    text-align: center;
+}
+.clear{
+    clear:both;
+}
+#menu {
+    position: absolute;
+    left: 45%;
+    top: 40%;
+    z-index:3;
+}
+#menu>div {
+    font-size: 16px;
+    color: white;
+    text-shadow: 1px 1px green;    
+}
+#menu>div:hover {
+    color: #121212;
+    text-shadow: 1px 1px green; 
+}
+#dialog-score {
+    display: table;
+}
+#dialog-score>div {
+    width: 100%;
+    display: table-row;
+}
+#dialog-score>div>span {
+    padding-bottom: 5px;
+    display: table-cell;
+}
+#dialog-score>div>span.name {
+    width: 200px;
+}
+#dialog-score>div>span.score {
+    width: 250px;
+    text-align: right;
+}
+#loading {
+    position: absolute;
+    left: 45%;
+    top: 40%;
+    z-index:3;
+    text-shadow: 1px 2px green;
+}
+#stats {
+    background-image: url('../art/menu.png');  
+    background-repeat: no-repeat;    
+    background-position: left top;
+    position: absolute;
+    width: 436px;
+    height: 76px;
+    right: 32px;
+    top: 0px;
+    z-index: 4;
+}
+#stats .left {
+    left: 0px;
+}
+#stats .timer {
+    right: 20px;
+    top: 8px;
+}
+#stats .carrots {
+    right: 285px;
+    top: 8px;
+}
+#stats .bottom {
+    bottom: -10px;
+    text-shadow: 1px 1px #121212;
+}
+div.text {
+    position: absolute;
+    line-height: 24px;
+    font-size: 16px;
+    color: white;
+    padding: 5px;
+    text-shadow: 1px 1px #12AA12;
+}
+div.text.center{
+    width:100%;
+    text-align: center;
+}
+#dialog-howto>h1 {
+    font-size: 20px;
+    text-decoration: underline;
+    padding: 4px 0;
+}
+#dialog-howto>p {
+    font-weight: normal;
+    font-size: 14px;
+}
+#dialog-howto>ul {
+    font-weight: normal;
+    list-style-type: none;
+    font-size: 14px;
+}
+#dialog-howto span.keys {
+    color: #12AA12;
+    font-weight: bold;
+}
+/* Interface */
+#left-frame {
+    background-image: url('../art/left_frame.png');
+    background-repeat: no-repeat;
+    background-position: left top;
+    height: 768px;
+    width: 100%;
+    position: relative;
+    left: -10px;
+    z-index: 2;
+}
+#right-frame {
+    background-image: url('../art/right_frame.png');    
+    background-repeat: no-repeat;
+    background-position: right top;
+    height: 768px;
+    width: 48px;
+    position: absolute;
+    right: -16px;
+    top: 0;
+    z-index: 3;
+}
+#bottom-frame {
+    background-image: url('../art/bottom_frame.png');    
+    background-repeat: no-repeat;
+    height: 48px;
+    width: 974px;
+    position: absolute;
+    bottom: -12px;
+    left: 48px;
+    z-index: 2;
+}
+#fps {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+}
