@@ -25,7 +25,8 @@ Config = Backbone.Model.extend({
     defaults: {
         // engine 
         'trace' : false,
-        'debug' : true,
+        'debug' : false,
+        'showfps': true,
         'renderType' : 'DOM', // default - faster under FF & Safari
         'screen-width' : 1024,
         'screen-height' : 768,
@@ -43,7 +44,7 @@ Config = Backbone.Model.extend({
         
         'enemiesPerTurn': 2,
         'startEnemiesCount': 2, // start with 2 enemies
-        'maxEnemiesToSpawn': 10, // through the whole game
+        'maxEnemiesToSpawn': 11, // through the whole game
 
 //        'startEnemiesCount': 2, // start with 2 enemies
 //        'maxEnemiesToSpawn': 1, // through the whole game
