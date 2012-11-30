@@ -37,8 +37,8 @@ Config = Backbone.Model.extend({
         'music_vol': 0.3,
         
         // gameplay
-        'gameTimeLimit': 120 * 1000, // 300 * 1000, // milliseconds
-        'gameTurnPeriod': 10 * 1000, // every 30 seconds
+        'gameTimeLimit': 300 * 1000, // 5 mins
+        'gameTurnPeriod': 30 * 1000, // every 30 seconds
         'gameTickPeriod': 1 * 1000, 
         
         'enemiesPerTurn': 2,
@@ -50,8 +50,8 @@ Config = Backbone.Model.extend({
         'maxCarrotsToSpawn': 11, // through the whole game
         
         // player props
-        'defaultCarrots': 10,
-        'carrotsCollect': 3,
+        'defaultCarrots': 0,
+        'carrotsCollect': 2,
         'carrotsPushCost': 1,
         'carrotsForkCost': 2,        
     },

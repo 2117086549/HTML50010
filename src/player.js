@@ -62,6 +62,7 @@ Player = ActorObject.extend({
         'pullSpeed': 2,
         'pushDistance': 60 * 60, // 150px distance
         'pushAmount': 25,
+        'pullID': undefined,
         
         // gfx properties
         'animSpeed': 8,
@@ -187,7 +188,7 @@ Player = ActorObject.extend({
                 
                 if (this.actions.action1 === keyState.down) {
                     // pull, only if the carrot is still around
-                    if (this.digCarrot.obj) { 
+                    if (this.digCarrot.obj && !this.digCarrot.obj.pulled) { 
                         this.digCarrot.obj.health -= model.get('pullSpeed');
                         
     //                    if (_Globals.conf.get('trace'))
@@ -199,7 +200,11 @@ Player = ActorObject.extend({
                             this.actions.action1 = keyState.none; // reset
                             model.set('carrotsCount', 
                                 model.get('carrotsCount') + _Globals.conf.get('carrotsCollect'));
+                            
+                            this.digCarrot.obj.pulled = true;
                             this.digCarrot.obj.destroy();
+                            this.digCarrot.canPull = false;
+                            
                             this.trigger('HidePullBar');
                             Crafty.trigger("UpdateStats");
                             Crafty.trigger('ShowMsg', 'clear');
@@ -208,6 +213,8 @@ Player = ActorObject.extend({
                             if (_Globals.conf.get('sfx')) {
                                 Crafty.audio.play("pull", 1, _Globals.conf.get('sfx_vol'));
                             }                        
+                            
+                            model.set('pullID', undefined);
                         }
                     }
                 }
@@ -232,11 +239,17 @@ Player = ActorObject.extend({
                     // we are pulling the first found
                     this.digCarrot.canPull = true;
                     this.digCarrot.obj = hits[0].obj;
+                    
+                    // remember which player's on
+                    model.set('pullID', this.digCarrot.obj[0]);
+                    
                     this.trigger('ShowPullBar', this.digCarrot.obj);
                 }
             } else if (this.digCarrot.canPull) {
                 this.digCarrot.canPull = false;
                 this.digCarrot.obj = undefined;
+                model.set('pullID', undefined);
+                
                 this.trigger('HidePullBar');
             }
             
@@ -296,7 +309,10 @@ Player = ActorObject.extend({
             
             if (!model.eatCarrots(_Globals.conf.get('carrotsForkCost'))) {
                 return;
-            }               
+            }
+            
+            if (_Globals.conf.get('sfx'))
+                Crafty.audio.play("aaaah", 1, _Globals.conf.get('sfx_vol'));
             
             var enemies = Crafty('Enemy');
             if (enemies && enemies.length > 0) {

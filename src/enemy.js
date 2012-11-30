@@ -106,7 +106,7 @@ Enemy = ActorObject.extend({
         
         // behavior
         'speed': 2,
-        'pullSpeed': 2,
+        'pullSpeed': 2.25,
         'pushCooldown': 30,
         
         // gfx properties
@@ -157,7 +157,23 @@ Enemy = ActorObject.extend({
                 // are about to pull another one or not
                 if (this.digCarrot.obj.health <= 0) {
                     this.digCarrot.canPull = false;
+                    this.digCarrot.obj.pulled = true;
                     this.digCarrot.obj.destroy();
+                    
+                    // mock player
+                    var playerPullID = model.get('player').get('pullID');
+                    if (playerPullID && playerPullID == this.digCarrot.obj[0]) {
+                        if (_Globals.conf.get('sfx'))
+                            // play sound
+                            if (_Globals.conf.get('sfx')) {
+                                if (Date.now() % 2 == 0) {
+                                    Crafty.audio.play("laughter1", 1, _Globals.conf.get('sfx_vol'));
+                                } else {
+                                    Crafty.audio.play("laughter2", 1, _Globals.conf.get('sfx_vol'));
+                                }
+                            }                        
+                    }
+                    
                     this.newTarget();
                 }
                 return;

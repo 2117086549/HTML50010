@@ -61,21 +61,23 @@ $(document).ready(function() {
          */
         Crafty.scene("loading", function() {
             Crafty.load([
-                "art/menu.png", 
-                "art/left_frame.png", 
                 "art/stuz_tiles.png", 
                 "art/stuz_rabbit.png",
                 "art/stuz_enemy.png",
                 "art/stuz_fart_moving.png",
                 "art/stuz_carrots.png",
                 "art/stuz_forkit.png",
+                "art/stuz_splash.png",
                 // sfx
                 "sfx/fart1.ogg",
                 "sfx/fart2.ogg",
                 "sfx/pull.ogg",
                 "sfx/scream1.ogg",
                 "sfx/scream2.ogg",
-               // "sfx/happymushrooms.ogg",
+                "sfx/aaaah.ogg",
+                "sfx/laughter01.ogg",
+                "sfx/laughter02.ogg",
+                "sfx/trouble_in_the_garden_lowq.ogg",
                 ], 
             function() {
         	    
@@ -85,8 +87,8 @@ $(document).ready(function() {
     			    stone_small: [1,0],
     			    stone_big: [2,0],
     			    tree: [0,1],
-                    barrel_big: [1,1],
-                    barrel_small: [2,1],
+                    bush: [1,1],
+                    barrel: [2,1],
     		    });
                 Crafty.sprite("art/stuz_rabbit.png", {
     			    player: [0, 0, 32, 48],
@@ -103,6 +105,9 @@ $(document).ready(function() {
                 Crafty.sprite(48, "art/stuz_forkit.png", {
                     fork: [0, 0],
         	    });
+                Crafty.sprite("art/stuz_splash.png", {
+                    splash: [0, 0],
+                });                
                 // --- Audio
                 Crafty.audio.add({
                     fart1: ["sfx/fart1.ogg"],
@@ -110,7 +115,10 @@ $(document).ready(function() {
                     pull: ["sfx/pull.ogg"],
                     scream1: ["sfx/scream1.ogg"],
                     scream2: ["sfx/scream2.ogg"],
-                   // music: ["sfx/happymushrooms.ogg"],
+                    aaaah: ["sfx/aaaah.ogg"],
+                    laughter1: ["sfx/laughter01.ogg"],
+                    laughter2: ["sfx/laughter02.ogg"],
+                    music: ["sfx/trouble_in_the_garden_lowq.ogg"],
                 });                
                 
     		    Crafty.scene(_Globals['scene']);

@@ -8,6 +8,7 @@
     <meta name="keywords" content="raging gardens, rabbits game, html5, javascript, indie, browser based, 2D game">    
     <title>Raging Gardens</title>
     <script type="text/javascript" src="lib/modernizr.custom.47915.js"></script>
+    <link rel="shortcut icon" href="favicon.ico" />
     <link type="text/css" href="css/style.css" rel="stylesheet" /> 
     <link type="text/css" href="css/le-frog/jquery-ui-1.9.2.custom.css" rel="stylesheet">
 </head>
@@ -25,7 +26,6 @@
     <script type="text/javascript" src="lib/IndexedDBShim.min.js"></script>
     <script type="text/javascript" src="lib/db.js"></script>
     <script type="text/javascript" src="lib/require.js"></script>
-    
     <!-- game -->
     <script type="text/javascript" src="src/bootstrap.js"></script>
     <script type="text/javascript" src="src/hiscore.js"></script>
@@ -33,7 +33,7 @@
     _Globals = {
         env : 'dev',
         version : '0.9',
-        scene : 'main'
+        scene : 'splash'
         };
         //Crafty.modules({ 'crafty-debug-bar': 'DEV' }, function () {
         //    Crafty.debugBar.show();
@@ -58,26 +58,35 @@
         opponents and gives you time to pull more carrots elsewhere on the map.</li>
     </ul>
     </div>
+    <div id="dialog-credits" style="display: none;">
+    <p>Game design and programming - Petar Petrov</p>
+    <p>Art and graphics - Stremena Tuzsuzova</p>
+    </div>    
     
-    <div id="fps" style="display: none;"></div>    
-    
-    <div id="cr-stage">
-        <div id="left-frame">
-            <div id="right-frame"></div>
-            <div id="bottom-frame"></div>
-        </div>
-        
-        <div id="loading" class="text left" style="display: none;"></div>
-        <div id="stats" style="display: none;">
-            <div id="timer" class="text timer"></div>
-            <div id="carrots" class="text carrots"></div>
-            <div id="msgs" class="text center bottom"></div>
-        </div>
-        <div id="menu" style="display: none;">
-            <div id="menu-start">Start Game</div>
-            <div id="menu-howto">How to play</div>
-            <div id="menu-hiscore">Hiscores</div>
+    <div id="fps" style="display: none;"></div>
+
+    <div id="wrapper">
+        <div id="left-frame" style="display: none;"></div>
+        <div id="right-frame" style="display: none;"></div>           
+        <div id="bottom-frame" style="display: none;"></div>
+
+        <div id="cr-stage">
+            <div id="loading" class="text left" style="display: none;"></div>
+            <div id="stats" style="display: none;">
+                <div id="timer" class="text timer"></div>
+                <div id="carrots" class="text carrots"></div>
+                <div id="msgs" class="text center bottom"></div>
+            </div>
+            <div id="menu" style="display: none;">
+                <div id="menu-start">Start Game</div>
+                <div id="menu-howto" style="margin-left: 70px;">How to play</div>
+                <div id="menu-hiscore" style="margin-left: 77px;">Hiscores</div>
+                <div id="menu-credits" style="margin-left: 103px;">Credits</div>
+            </div>
+            <div id="version" style="display: none;"></div>
         </div>
     </div>
+    
+    <div id="logo"></div>
 </body>
 </html>
