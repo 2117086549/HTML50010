@@ -40,7 +40,7 @@ Tilemap = ActorObject.extend({
         'height' : _Globals.conf.get('screen-height') / 64,
         'spawnArea': undefined,
         'base-z' : 10,
-        'maxObstacles' : 30,
+        'maxObstacles' : 27,
         
         // Carrots 
         'carrotHeightOffset': 16,
@@ -81,7 +81,7 @@ Tilemap = ActorObject.extend({
         var obstaclesCoords = [];
         
         for (var i = 0; i < model.get('maxObstacles'); i++) {
-            var type = Crafty.math.randomInt(1, 5);
+            var type = Crafty.math.randomInt(1, 6);
             var occupiedTile = false;
             var ox;
             var oy;
@@ -120,6 +120,9 @@ Tilemap = ActorObject.extend({
             } else if (type == 5) {
                 spriteName = 'bush';
                 oz = model.get('base-z') + oy + model.get('tileSize') - 16;
+            } else if (type == 6) {
+                spriteName = 'heysack';
+                oz = model.get('base-z') + oy + model.get('tileSize');                
             } else {
                 continue;
             }
@@ -141,7 +144,7 @@ Tilemap = ActorObject.extend({
                     [48, 48], 
                     [16, 48]
                 );                       
-            } else if (type == 3) { // tree
+            } else if (type == 3 || type == 6) { // tree/heysack
                 entity.collision(
                     [12, 52], 
                     [56, 52], 
@@ -237,9 +240,16 @@ Tilemap = ActorObject.extend({
                     health: this.get('carrotHealth'),
                     pulled: false,
                     occupied: false,
+                    startFrame: Crafty.frame() + 500,
                 })
-                .animate('wind', [ [0, 0], [32, 0], [64, 0], [32, 0] ]) // setup animation
-                .animate('wind', 40, -1); // play animation
+                .animate('wind', [ [0, 0], [32, 0], [64, 0], [32, 0] ]) // setup anim
+                .animate('wind', 40, -1); // play anim
+                
+//                .bind("EnterFrame", function(frame) {
+//                    if (frame.frame > this.startFrame) {
+//                        this.destroy();
+//                    }
+//                });
         }
     },
     // get unoccupied map position given tile coordinates

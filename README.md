@@ -1,19 +1,19 @@
 _.o0 Raging Gardens 0o._
 ==========================
 
-![alt text](https://raw.github.com/petarov/game-off-2012/master/art/logo.png "Raging Gardens")
+![alt text](https://raw.github.com/petarov/game-off-2012/master/art/logo-clr.png "Raging Gardens")
 
 HTML5/Javascript web browser game. Entry to GitHub [game-off-2012](https://github.com/github/game-off-2012) challenge.
 
 It's a lovely day at farmers field. A great time for a hungry (ninja) rabbit to sneak in and **pull** some carrots to eat.
 Too bad you weren't the only one with that idea. A horde of hungry opponents approaches fast! Pull as many carrots
-as you can in **5 minutes**. To fight your opponents, you must use ancient *rabbitjutsu* tactics. These are slightly unorthodox.
-Simply uhm ... fart to **push** your competition away or use a **Carrot-on-a-Fork** totem decoy to deceive opponents.
+as you can in **3 minutes**. To fight your opponents, you must use ancient *rabbitjutsu* tactics. These are slightly unorthodox.
+Simply uhm ... fart to **push** your opponents away or use a **Carrot-on-a-Fork** totem decoy to deceive them.
 
-![alt text](http://i.imgur.com/RxYAi.png "Gameplay screenshot")
+![alt text](http://i.imgur.com/i5rq4.png "Gameplay screenshot")
 
 # Controls
-Collect as many carrots as possible in **5 minutes**. Use the controls to move and repel opponents.
+Collect as many carrots as possible in **3 minutes**. Use the controls to move and repel opponents.
 
   * **Arrow keys** - Move your ninja rabbit on the map.
   * **Z (or Y)** - Hold down to pull a carrot from the ground. You need to be close to a carrot.
@@ -50,7 +50,7 @@ Collect as many carrots as possible in **5 minutes**. Use the controls to move a
   </tr>  
 </table>
 
-_*Hiscore savings are currently not working correctly on Safari!_
+_*Hiscore savings and game sound are currently (and sadly) not working correctly on Safari!_
 
 # Open Source Libraries
 Raging Gardens uses the following javascript libraries:
@@ -82,6 +82,8 @@ Using sounds authored by:
   * http://freesound.org/people/Erdie/sounds/44261/
   * http://freesound.org/people/annannienann/sounds/8067/
   * http://freesound.org/people/Syna-Max/sounds/39417/
+  * http://freesound.org/people/HardPCM/sounds/32744/
+  * http://freesound.org/people/djgriffin/sounds/21209/
 
 In order to suit the in-game atmosphere, I have edited almost all of the samples with [Audacity](http://audacity.sourceforge.net/).
 
