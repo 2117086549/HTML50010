@@ -11,6 +11,13 @@
     <link rel="shortcut icon" href="favicon.ico" />
     <link type="text/css" href="css/style.min.css" rel="stylesheet" /> 
     <link type="text/css" href="css/le-frog/jquery-ui-1.9.2.custom.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="lib/crafty-0.5.3.js"></script>
+    <script type="text/javascript" src="lib/underscore-min.js"></script>
+    <script type="text/javascript" src="lib/backbone-min.js"></script>
+    <script type="text/javascript" src="lib/graph.js"></script>
+    <script type="text/javascript" src="lib/astar.js"></script>
 </head>
 <body>
 <!--[if lt IE 8]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
@@ -18,32 +25,38 @@
     <script type="text/javascript">
 	_Globals = {
 	    env : 'prod',
-	    version : '0.9.6',
+	    version : '0.9.7',
 	    scene : 'splash'
 	};
-	
 	var require = {
 	     waitSeconds: 15,
 	     urlArgs : "bust=" + new Date().getTime(),
 	};    
     </script> 
-        
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="lib/playtomic.v2.2.min.js"></script>
-    <script type="text/javascript" src="lib/crafty-0.5.3.js"></script>
-    <script type="text/javascript" src="lib/underscore-min.js"></script>
-    <script type="text/javascript" src="lib/backbone-min.js"></script>
-    <script type="text/javascript" src="lib/graph.js"></script>
-    <script type="text/javascript" src="lib/astar.js"></script>
     <script type="text/javascript" src="lib/require.js"></script>
+    
+	<script type="text/javascript">
+	var Clay = Clay || {};
+	Clay.gameKey = "raginggardens";
+	Clay.readyFunctions = [];
+	Clay.ready = function( fn ) {
+	    Clay.readyFunctions.push( fn );
+	};
+	Clay.options = { debug: true, hideUI: true, fail: function() {
+	    console.log( "Couldn't connect" );
+	}};		
+	( function() {
+	    var clay = document.createElement("script");
+	    clay.src = ( "https:" == document.location.protocol ? "https://" : "http://" ) + "clay.io/api/api.js"; 
+	    var tag = document.getElementsByTagName("script")[0]; tag.parentNode.insertBefore(clay, tag);
+	} )();
+	</script>    
     <!-- game -->
     <script type="text/javascript" src="src/bootstrap.js"></script>
-    <script type="text/javascript" src="src/hiscore.js"></script>
 
     <a href="https://github.com/petarov/game-off-2012"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
 
-    <div id="dialog-save-score" style="display: none;">Publish your score in the hiscores chart?</div>
+    <div id="dialog-save-score" style="display: none;">Publish your score to the hiscores chart?</div>
     <div id="dialog-score" style="display: none;"></div>
     <div id="dialog-howto" style="display: none;">
     <h1>Story</h1>
@@ -69,7 +82,7 @@
         <br />
         <p>Art and graphics - <a target="_blank" href="http://stremena.com/">Stremena Tuzsuzova</a></p>
         <br />
-        <p>Sound & Music - <a target="_blank" href="https://github.com/petarov/game-off-2012#sound-and-music">See here</a></p>
+        <p>Sound &amp; Music - <a target="_blank" href="https://github.com/petarov/game-off-2012#sound-and-music">See here</a></p>
     </div>
     <div id="dialog-restart" style="display: none;">Would you like to restart the game?</div>
     
