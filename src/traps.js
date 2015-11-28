@@ -1,0 +1,1 @@
+(function ItsATrap(a){a.addEventListener("keydown",function(b){switch(b.keyCode){case 37:case 39:case 38:case 40:case 32:b.preventDefault();break;default:break}},false)}(window));
