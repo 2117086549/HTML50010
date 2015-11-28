@@ -1,1 +1,0 @@
-ActorObject=Backbone.Model.extend({defaults:{entity:null,},initialize:function(){},getEntity:function(){return this.get("entity")},remove:function(){var a=this.getEntity();if(a){a.destroy()}}});
